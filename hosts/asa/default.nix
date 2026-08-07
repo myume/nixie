@@ -97,6 +97,12 @@ in {
         port = 3001;
       };
     };
+
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      user = "yum";
+    };
   };
 
   systemd.services."cloudflared-tunnel-${tunnel_id}".serviceConfig = {
