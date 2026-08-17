@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   programs.niri.settings.binds = let
     workspaces = lib.flatten (map (n: [
       {
@@ -15,10 +11,7 @@
       }
     ]) (lib.lists.range 1 9));
 
-    launcher =
-      if config.layer-shell.ags.enable
-      then "ags toggle launcher"
-      else "quickshell ipc call launcher toggle";
+    launcher = "quickshell ipc call launcher toggle";
   in
     workspaces
     ++ [

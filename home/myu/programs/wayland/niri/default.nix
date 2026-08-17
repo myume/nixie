@@ -5,20 +5,6 @@
   inputs,
   ...
 }: let
-  ags =
-    if config.layer-shell.ags.enable
-    then [
-      {
-        command = [
-          "ags"
-          "run"
-          "--log-file"
-          "/tmp/ags.log"
-        ];
-      }
-    ]
-    else [];
-
   quickshell =
     if config.layer-shell.quickshell.enable
     then [
@@ -32,8 +18,7 @@
     else [];
 
   autostart =
-    ags
-    ++ quickshell
+    quickshell
     ++ [
       {
         command = [

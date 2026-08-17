@@ -4,17 +4,12 @@
   config,
   ...
 }: let
-  ags =
-    if config.layer-shell.ags.enable
-    then ["ags run --log-file /tmp/ags.log"]
-    else [];
-
   quickshell =
     if config.layer-shell.quickshell.enable
     then ["quickshell -d"]
     else [];
 
-  autostart = ags ++ quickshell;
+  autostart = quickshell;
 in {
   imports = lib.filesystem.listFilesRecursive ./settings;
 
