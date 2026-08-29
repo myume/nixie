@@ -8,11 +8,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1787450600,
-        "narHash": "sha256-5p7HZ/zNcFcX4JeugFKLT7kDqAeGtgIK+A0ACTOmSu8=",
+        "lastModified": 1788018917,
+        "narHash": "sha256-XlHiCymuNoCF/yfJm8g4MBZAV4lIKwpETg73AvG4xCQ=",
         "owner": "myume",
         "repo": "ciri",
-        "rev": "b6836dca73a419ceda84e8eb428b3d76763f1cde",
+        "rev": "866ef0eaed14f642f14e8e61ea737fb86f50eb6b",
         "type": "github"
       },
       "original": {

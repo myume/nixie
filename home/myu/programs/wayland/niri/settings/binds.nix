@@ -151,6 +151,7 @@
       {
         key = "Mod+Ctrl+S";
         action.spawn-sh = "systemctl suspend-then-hibernate";
+        allow-when-locked = true;
       }
 
       {
@@ -174,14 +175,17 @@
       {
         key = "XF86AudioRaiseVolume";
         action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
+        allow-when-locked = true;
       }
       {
         key = "XF86AudioLowerVolume";
         action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1";
+        allow-when-locked = true;
       }
       {
         key = "XF86AudioMute";
         action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        allow-when-locked = true;
       }
       {
         key = "XF86AudioPlay";
