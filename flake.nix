@@ -24,7 +24,7 @@
     waysted.url = "github:myume/waysted";
     wally.url = "github:myume/wally";
 
-    fsel.url = "github:Mjoyufull/fsel/dev";
+    fsel.url = "github:Mjoyufull/fsel";
 
     ciri.url = "github:myume/ciri";
   };
