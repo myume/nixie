@@ -59,11 +59,11 @@
       }
 
       {
-        key = "Ctrl+Shift+H";
+        key = "Ctrl+Shift+L";
         action.set-column-width = "+10%";
       }
       {
-        key = "Ctrl+Shift+L";
+        key = "Ctrl+Shift+H";
         action.set-column-width = "-10%";
       }
       {
