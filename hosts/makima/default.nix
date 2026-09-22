@@ -48,6 +48,10 @@ in {
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
+
+      # framework 13 usb modules sometimes are unresponsive after suspend/reboot/poweroff/hibernate
+      # apparently this causes all usb controllers to be reinit on resume.
+      "xhci_hcd.quirks=0x80"
     ];
     kernel.sysctl = {
       "vm.swappiness" = 0;
