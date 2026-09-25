@@ -77,6 +77,11 @@ in {
           ROOT_URL = "https://git.meyume.com/";
           HTTP_ADDR = "127.0.0.1";
           HTTP_PORT = 3000;
+
+          SSH_DOMAIN = "ssh.meyume.com";
+          START_SSH_SERVER = false;
+          SSH_PORT = 22;
+          SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
         };
         service.DISABLE_REGISTRATION = true;
         actions = {
