@@ -7,6 +7,9 @@
           json = ["prettier"];
         };
       };
+      presets = {
+        tombi.enable = true;
+      };
     };
   };
 }
