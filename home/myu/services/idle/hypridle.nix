@@ -1,14 +1,15 @@
 {
   services.hypridle = let
+    lock = "pidof hyprlock || hyprlock";
     display = status: "niri msg action power-${status}-monitors";
   in {
     enable = true;
 
     settings = {
       general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
+        lock_cmd = lock;
+        before_sleep_cmd = lock;
         after_sleep_cmd = display "on";
-        before_sleep_cmd = "loginctl lock-session";
         ignore_dbus_inhibit = false;
       };
 
