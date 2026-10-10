@@ -97,7 +97,7 @@ in {
 
     forgejo-runner = {
       package = pkgs.forgejo-runner;
-      instances.host = {
+      instances.guerrilla = {
         enable = true;
         runtimes.host = true;
         settings = {
