@@ -97,19 +97,35 @@ in {
 
     forgejo-runner = {
       package = pkgs.forgejo-runner;
-      instances.guerrilla = {
-        enable = true;
-        runtimes.host = true;
-        settings = {
-          runner.labels = [
-            "native:host"
-          ];
-          server.connections.forgejo = {
-            url = "http://127.0.0.1:3000";
-            uuid = "b050c348-e6e7-4c1e-afae-cbe9ab296ac7";
+      instances = {
+        revy = {
+          enable = true;
+          runtimes.host = true;
+          settings = {
+            runner.labels = [
+              "nix:docker://nixos/nix:2.34.8"
+            ];
+            server.connections.forgejo = {
+              url = "http://127.0.0.1:3000";
+              uuid = "6fe63732-1a64-4e41-97d8-fe10f8ce6b44";
+            };
           };
+          secrets.server.connections."forgejo".token_url = "/var/lib/forgejo/revy_token";
         };
-        secrets.server.connections."forgejo".token_url = "/var/lib/forgejo/forgejoToken.key";
+        guerrilla = {
+          enable = true;
+          runtimes.host = true;
+          settings = {
+            runner.labels = [
+              "native:host"
+            ];
+            server.connections.forgejo = {
+              url = "http://127.0.0.1:3000";
+              uuid = "b050c348-e6e7-4c1e-afae-cbe9ab296ac7";
+            };
+          };
+          secrets.server.connections."forgejo".token_url = "/var/lib/forgejo/native_token";
+        };
       };
     };
 
