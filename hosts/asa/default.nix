@@ -39,6 +39,8 @@ in {
     git
   ];
 
+  virtualisation.podman.enable = true;
+
   services = {
     openssh.enable = true;
 
@@ -88,6 +90,24 @@ in {
           ENABLED = true;
           DEFAULT_ACTIONS_URL = "github";
         };
+      };
+    };
+
+    forgejo-runner = {
+      package = pkgs.forgejo-runner;
+      instances.host = {
+        enable = true;
+        runtimes.host = true;
+        settings = {
+          runner.labels = [
+            "native:host"
+          ];
+          server.connections.forgejo = {
+            url = "https://localhost:3000";
+            uuid = "b050c348-e6e7-4c1e-afae-cbe9ab296ac7";
+          };
+        };
+        secrets.server.connections."forgejo".token_url = "/var/lib/forgejo/forgejoToken.key";
       };
     };
 
