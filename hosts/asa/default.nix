@@ -105,7 +105,7 @@ in {
             "native:host"
           ];
           server.connections.forgejo = {
-            url = "https://localhost:3000";
+            url = "http://127.0.0.1:3000";
             uuid = "b050c348-e6e7-4c1e-afae-cbe9ab296ac7";
           };
         };
