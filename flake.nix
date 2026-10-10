@@ -27,6 +27,11 @@
     fsel.url = "github:Mjoyufull/fsel";
 
     ciri.url = "github:myume/ciri";
+
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
