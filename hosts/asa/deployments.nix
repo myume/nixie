@@ -5,7 +5,7 @@ in {
     description = "Brainsoup Service";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "/var/lib/brainsoup/bin/bs";
+      ExecStart = "/var/lib/brainsoup/current/bin/bs";
       Restart = "always";
     };
   };
