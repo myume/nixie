@@ -19,6 +19,11 @@ in {
       User = hostrunner;
       Group = hostrunner;
     };
+
+    environment = {
+      DATABASE = "sqlite://journal.db";
+      PORT = "9999";
+    };
   };
 
   systemd.services."${hostrunner}".serviceConfig.ReadWritePaths = [
