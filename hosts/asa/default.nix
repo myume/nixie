@@ -115,6 +115,18 @@ in {
         guerrilla = {
           enable = true;
           runtimes.host = true;
+          hostPackages = with pkgs; [
+            bash
+            coreutils
+            curl
+            gawk
+            gnugrep
+            gnused
+            nodejs
+            wget
+            gitMinimal
+            nix
+          ];
           settings = {
             runner.labels = [
               "native:host"
