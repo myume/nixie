@@ -1,7 +1,7 @@
 let
   hostrunner = "forgejo-runner-guerrilla";
 in {
-  systemd.user.services.brainsoup = {
+  systemd.services.brainsoup = {
     description = "Brainsoup Service";
     wantedBy = ["multi-user.target"];
     after = ["network.target"];
@@ -15,12 +15,11 @@ in {
       ProtectSystem = "strict";
       ProtectHome = true;
       PrivateTmp = true;
+
+      User = hostrunner;
+      Group = hostrunner;
     };
   };
-
-  systemd.tmpfiles.rules = [
-    "d /var/lib/brainsoup/current 0755 ${hostrunner} ${hostrunner} -"
-  ];
 
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
