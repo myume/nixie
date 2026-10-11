@@ -11,7 +11,7 @@ in {
   };
 
   systemd.tmpfiles.rules = [
-    "d /var/lib/brainsoup 0755 ${hostrunner} ${hostrunner} -"
+    "d /var/lib/brainsoup/current 0755 ${hostrunner} ${hostrunner} -"
   ];
 
   security.polkit.extraConfig = ''
