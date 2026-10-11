@@ -21,7 +21,7 @@ in {
     };
 
     environment = {
-      DATABASE = "sqlite://journal.db";
+      DATABASE_URL = "sqlite://journal.db";
       PORT = "9999";
     };
   };
