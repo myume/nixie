@@ -10,6 +10,7 @@ in {
     ./hardware-configuration.nix
     ../../modules/networking
     ../../modules/locale
+    ./deployments.nix
     inputs.comin.nixosModules.comin
   ];
 
