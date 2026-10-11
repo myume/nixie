@@ -104,6 +104,7 @@ in {
           settings = {
             runner.labels = [
               "nix:docker://nixos/nix:2.34.8"
+              "ubuntu-latest:docker://ubuntu:latest"
             ];
             server.connections.forgejo = {
               url = "http://127.0.0.1:3000";
