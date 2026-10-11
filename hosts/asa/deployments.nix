@@ -21,6 +21,10 @@ in {
     };
   };
 
+  systemd.services."${hostrunner}".serviceConfig.ReadWritePaths = [
+    "/var/lib/brainsoup"
+  ];
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (action.id == "org.freedesktop.systemd1.manage-units" &&
