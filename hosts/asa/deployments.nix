@@ -4,9 +4,17 @@ in {
   systemd.user.services.brainsoup = {
     description = "Brainsoup Service";
     wantedBy = ["multi-user.target"];
+    after = ["network.target"];
     serviceConfig = {
       ExecStart = "/var/lib/brainsoup/current/bin/bs";
-      Restart = "always";
+      StateDirectory = "brainsoup";
+      WorkingDirectory = "/var/lib/brainsoup";
+      Restart = "on-failure";
+      RestartSec = 2;
+      NoNewPrivileges = true;
+      ProtectSystem = "strict";
+      ProtectHome = true;
+      PrivateTmp = true;
     };
   };
 
