@@ -5,13 +5,13 @@ in {
     description = "Brainsoup Service";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "/var/lib/brainsoup/brainsoup";
+      ExecStart = "/var/lib/brainsoup/bin/bs";
       Restart = "always";
     };
   };
 
   systemd.tmpfiles.rules = [
-    "d /var/lib/myapp-bin 0755 ${hostrunner} ${hostrunner} -"
+    "d /var/lib/brainsoup 0755 ${hostrunner} ${hostrunner} -"
   ];
 
   security.polkit.extraConfig = ''
