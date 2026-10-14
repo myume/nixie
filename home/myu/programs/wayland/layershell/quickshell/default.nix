@@ -21,6 +21,6 @@
       terminal_launcher = "kitty -e"
     '';
 
-    xdg.configFile."quickshell".source = ./src;
+    xdg.configFile."quickshell".source = ./qs;
   };
 }
