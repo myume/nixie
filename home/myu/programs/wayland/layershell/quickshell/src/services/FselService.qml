@@ -5,17 +5,25 @@ import QtQuick
 Item {
     id: root
     property list<var> desktopEntries: []
+    property bool retry: true
 
-    function query(searchString: string): list<var> {
-        fsel.exec(["fsel", "-r", "--stdout", "--filter-actions", "-ss", searchString]);
+    function query(searchString: string) {
+        fselQuery.exec(["fsel", "--stdout", "--filter-actions", "-ss", searchString]);
     }
 
     function launch(app: var) {
-        fselLaunch.exec(["sh", "-c", `fsel -r -d -p "${app.name}"`]);
+        retry = true;
+        fselLaunch.exec(["fsel", "-r", "-d", "-p", app.name]);
     }
 
-    function resetEntries() {
-        fselInit.running = true;
+    Process {
+        id: fselClearCache
+        command: ["fsel", "-r", "--clear-cache"]
+        onExited: fselLaunch.running = true
+        onRunningChanged: {
+            if (running)
+                console.info("Clearing fsel cache...");
+        }
     }
 
     Process {
@@ -25,19 +33,20 @@ Item {
             onStreamFinished: {
                 if (text !== "")
                     console.warn(text);
+
+                if (text.includes("No such file or directory") && root.retry) {
+                    root.retry = false;
+                    fselClearCache.running = true;
+                }
             }
         }
-        onRunningChanged: {
-            if (!running)
-                root.resetEntries();
-        }
+        onExited: fselInit.running = true
     }
 
     Process {
         id: fselInit
-        workingDirectory: Quickshell.env("HOME")
         running: true
-        command: ["fsel", "-r", "--stdout", "--filter-actions"]
+        command: ["fsel", "--stdout", "--filter-actions"]
         stdout: StdioCollector {
             onStreamFinished: {
                 if (text !== "")
@@ -47,8 +56,7 @@ Item {
     }
 
     Process {
-        id: fsel
-        workingDirectory: Quickshell.env("HOME")
+        id: fselQuery
         stdout: StdioCollector {
             onStreamFinished: {
                 if (text !== "")
