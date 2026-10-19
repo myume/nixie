@@ -2,6 +2,7 @@
   programs.nvf.settings.vim = {
     mini.icons.enable = true;
     ui = {
+      dropbar-nvim.enable = true;
       colorizer.enable = true;
       noice = {
         enable = true;

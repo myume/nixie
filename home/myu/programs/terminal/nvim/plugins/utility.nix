@@ -20,6 +20,7 @@
         enable = true;
         mappings.toggle = "<A-o>";
       };
+      guess-indent-nvim.enable = true;
 
       # bro this plugin is literally like 20 different plugins combined
       snacks-nvim = {

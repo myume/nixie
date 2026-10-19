@@ -13,6 +13,15 @@
       };
       go.enable = true;
       html.enable = true;
+      http = {
+        enable = true;
+        extensions.kulala-nvim = {
+          enable = true;
+          setupOpts = {
+            global_keymaps = true;
+          };
+        };
+      };
       markdown = {
         enable = true;
         extensions.render-markdown-nvim.enable = true;

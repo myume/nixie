@@ -1,21 +1,5 @@
 {pkgs, ...}: {
   programs.nvf.settings.vim.extraPlugins = {
-    # fixes indentation
-    # https://github.com/NotAShelf/nvf/discussions/750#discussioncomment-12671186
-    guess-indent = {
-      package = pkgs.vimPlugins.guess-indent-nvim;
-      setup = ''
-        require("guess-indent").setup()
-      '';
-    };
-
-    dropbar = {
-      package = pkgs.vimPlugins.dropbar-nvim;
-      setup = ''
-        require("dropbar").setup()
-      '';
-    };
-
     no-neck-pain-nvim = {
       package = pkgs.vimPlugins.no-neck-pain-nvim;
       setup = ''
@@ -24,15 +8,6 @@
           mappings = {
             enabled = true,
           },
-        })
-      '';
-    };
-
-    kulala-nvim = {
-      package = pkgs.vimPlugins.kulala-nvim;
-      setup = ''
-        require("kulala").setup({
-          global_keymaps = true,
         })
       '';
     };
