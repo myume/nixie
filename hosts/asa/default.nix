@@ -17,6 +17,13 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [intel-media-driver];
+    };
+  };
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";
