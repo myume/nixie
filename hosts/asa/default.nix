@@ -33,13 +33,12 @@ in {
     yum = {
       isNormalUser = true;
       description = "yum";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "render" "video"];
       packages = with pkgs; [];
       homeMode = "710";
     };
 
     kavita.extraGroups = ["users"];
-    jellyfin.extraGroups = ["render" "video"];
   };
 
   nixpkgs.config.allowUnfree = true;
