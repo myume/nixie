@@ -40,6 +40,7 @@ in {
   environment.systemPackages = with pkgs; [
     vim
     git
+    mpv
   ];
 
   virtualisation.podman.enable = true;
