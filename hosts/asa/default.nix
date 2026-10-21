@@ -39,6 +39,7 @@ in {
     };
 
     kavita.extraGroups = ["users"];
+    jellyfin.extraGroups = ["render" "video"];
   };
 
   nixpkgs.config.allowUnfree = true;
