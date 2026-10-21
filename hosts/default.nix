@@ -1,6 +1,7 @@
 {
   nixpkgs,
   home-manager,
+  ciri,
   ...
 } @ inputs: {
   makima = let
@@ -15,6 +16,7 @@
       modules = [
         (./. + "/${hostname}")
 
+        ciri.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {

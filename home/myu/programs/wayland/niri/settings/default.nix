@@ -4,6 +4,7 @@
     ./layout.nix
     ./binds.nix
     ./rules.nix
+    ./outputs.nix
   ];
 
   programs.niri.settings = {
