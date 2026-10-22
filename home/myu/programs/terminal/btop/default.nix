@@ -13,6 +13,7 @@ in {
     package = pkgs.btop-rocm;
     settings = {
       color_theme = themeName;
+      vim_keys = true;
     };
   };
 
