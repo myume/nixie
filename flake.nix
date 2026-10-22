@@ -16,7 +16,7 @@
     };
 
     nvf = {
-      url = "github:myume/nvf/languages/gdscript";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

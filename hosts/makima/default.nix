@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }: let
   modPath = ../../modules;
@@ -54,7 +53,6 @@ in {
     kernel.sysctl = {
       "vm.swappiness" = 0;
     };
-    extraModulePackages = lib.mkForce [];
   };
 
   services = {
