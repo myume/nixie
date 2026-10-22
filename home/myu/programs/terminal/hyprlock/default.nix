@@ -27,7 +27,7 @@ in {
           path = "${wallpaperPath}/pfp/pink.jpg";
           size = "400";
           border_size = 0;
-          roundig = -1;
+          rounding = -1;
 
           position = "0, 150";
           halign = "center";
