@@ -11,7 +11,6 @@ in {
       };
 
       auth = {
-        # there's a delay on unlocking, probably due to async/scheduling issues
         fingerprint.enabled = true;
       };
 

@@ -8,6 +8,6 @@
 
   security.pam.services = {
     login.fprintAuth = true;
-    hyprlock.fprintAuth = true;
+    hyprlock.fprintAuth = false;
   };
 }
