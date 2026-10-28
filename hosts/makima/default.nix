@@ -35,7 +35,7 @@ in {
     ++ securityImports;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_7_2;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
