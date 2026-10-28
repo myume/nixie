@@ -12,6 +12,7 @@
         extraDiagnostics.enable = false;
       };
       go.enable = true;
+      gdscript.enable = true;
       html.enable = true;
       http = {
         enable = true;
