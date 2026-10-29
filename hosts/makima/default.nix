@@ -25,6 +25,7 @@ in {
       "${modPath}/fonts"
       "${modPath}/virtualisation"
       ./hibernation.nix
+      "${modPath}/networking/tailscale.nix"
 
       inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
 
