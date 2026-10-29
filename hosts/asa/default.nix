@@ -9,6 +9,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/networking
+    ../../modules/networking/tailscale.nix
     ../../modules/locale
     ./deployments.nix
     inputs.comin.nixosModules.comin
