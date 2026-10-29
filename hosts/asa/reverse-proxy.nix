@@ -16,6 +16,7 @@ in {
     certs.${domain} = {
       domain = "*.${domain}";
       dnsProvider = "cloudflare";
+      dnsResolver = "1.1.1.1:53";
       environmentFile = "/etc/acme/cloudflare.env";
       group = config.services.caddy.group;
     };
