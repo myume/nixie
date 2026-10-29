@@ -7,7 +7,7 @@
   apps = {
     jellyfin = 8096;
     kavita = config.services.kavita.settings.Port;
-    brainsoup = config.services.brainsoup.environment.PORT;
+    brainsoup = config.systemd.services.brainsoup.environment.PORT;
   };
 in {
   security.acme = {
