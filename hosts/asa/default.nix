@@ -12,6 +12,7 @@ in {
     ../../modules/networking/tailscale.nix
     ../../modules/locale
     ./deployments.nix
+    ./reverse-proxy.nix
     inputs.comin.nixosModules.comin
   ];
 
