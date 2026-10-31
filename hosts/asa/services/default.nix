@@ -35,6 +35,10 @@ in {
     ./jellyfin.nix
     ./kavita.nix
     ./monitoring
+
+    # deployment tools that are on by default
+    ./comin.nix
+    ./cloudflare.nix
   ];
 
   options.selfhosted = {

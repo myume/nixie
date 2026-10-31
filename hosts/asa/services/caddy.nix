@@ -19,6 +19,7 @@ in {
 
   services.caddy = {
     enable = true;
+    globalConfig = "metrics";
     virtualHosts =
       lib.mapAttrs'
       (_: attrs:
