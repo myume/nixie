@@ -34,7 +34,7 @@ in {
     ./forgejo.nix
     ./jellyfin.nix
     ./kavita.nix
-    ./monitoring.nix
+    ./monitoring
   ];
 
   options.selfhosted = {
