@@ -44,4 +44,19 @@
         (./. + "/${hostname}")
       ];
     };
+
+  # y700
+  kobeni = let
+    hostname = "kobeni";
+  in
+    nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit hostname;
+        inherit inputs;
+      };
+
+      modules = [
+        (./. + "/${hostname}")
+      ];
+    };
 }
