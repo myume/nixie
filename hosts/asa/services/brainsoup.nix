@@ -1,6 +1,11 @@
-let
+{config, ...}: let
   hostrunner = "forgejo-runner-guerrilla";
 in {
+  selfhosted.services.brainsoup = {
+    name = "bs";
+    port = 9999;
+  };
+
   systemd.services.brainsoup = {
     description = "Brainsoup Service";
     wantedBy = ["multi-user.target"];
@@ -22,7 +27,7 @@ in {
 
     environment = {
       DATABASE_URL = "sqlite://journal.db";
-      PORT = "9999";
+      PORT = toString config.selfhosted.services.brainsoup.port;
     };
   };
 

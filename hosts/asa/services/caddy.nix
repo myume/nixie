@@ -3,12 +3,7 @@
   lib,
   ...
 }: let
-  domain = "meyume.com";
-  apps = {
-    jellyfin = 8096;
-    kavita = config.services.kavita.settings.Port;
-    brainsoup = config.systemd.services.brainsoup.environment.PORT;
-  };
+  inherit (config.selfhosted) domain;
 in {
   security.acme = {
     acceptTerms = true;
@@ -26,13 +21,13 @@ in {
     enable = true;
     virtualHosts =
       lib.mapAttrs'
-      (name: port:
-        lib.nameValuePair "${name}.${domain}" {
+      (_: attrs:
+        lib.nameValuePair attrs.host {
           extraConfig = ''
             tls /var/lib/acme/${domain}/fullchain.pem /var/lib/acme/${domain}/key.pem
-            reverse_proxy 127.0.0.1:${toString port}
+            reverse_proxy 127.0.0.1:${toString attrs.port}
           '';
         })
-      apps;
+      (lib.filterAttrs (_: s: s.port != null) config.selfhosted.services);
   };
 }
