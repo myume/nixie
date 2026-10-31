@@ -14,7 +14,8 @@
       web.port = config.selfhosted.services.gatus.port;
 
       alerting.ntfy = {
-        url = config.services.ntfy-sh.settings.listen-http;
+        url = "https://${config.selfhosted.services.ntfy.host}";
+
         topic = "asa";
         priority = 4;
         default-alert = {
