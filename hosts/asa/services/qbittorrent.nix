@@ -6,6 +6,7 @@
 
   services.qbittorrent = {
     enable = true;
+    webuiPort = 8008;
   };
 
   services.qui = {
@@ -14,9 +15,9 @@
     settings = {
       port = config.selfhosted.services.qbittorrent.port;
 
-      metricsEnabled = true;
-      metricsHost = "127.0.0.1";
-      metricsPort = 9074;
+      # metricsEnabled = true;
+      # metricsHost = "127.0.0.1";
+      # metricsPort = 9074;
     };
   };
 }
