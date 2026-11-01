@@ -1,4 +1,24 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  categories = {
+    movies = "${config.selfhosted.mediaDir}/movies";
+    shows = "${config.selfhosted.mediaDir}/shows";
+    "light-novels" = "${config.selfhosted.mediaDir}/books/light_novels";
+  };
+
+  categoriesJson =
+    pkgs.writeText "categories.json"
+    (builtins.toJSON (
+      builtins.mapAttrs (_: save_path: {
+        inherit save_path;
+      })
+      categories
+    ));
+in {
   selfhosted.services.qbittorrent = {
     name = "qb";
     port = 7476;
@@ -21,8 +41,14 @@
       };
     };
   };
-
-  systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+  systemd.services.qbittorrent = {
+    serviceConfig = {
+      UMask = "0002";
+      ExecStartPre = lib.mkAfter [
+        "${pkgs.coreutils}/bin/install -Dm600 ${categoriesJson} /var/lib/qBittorrent/qBittorrent/config/categories.json"
+      ];
+    };
+  };
 
   services.qui = {
     enable = true;
