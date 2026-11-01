@@ -13,7 +13,7 @@
       DOMAIN = "https://${config.selfhosted.services.vaultwarden.host}";
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = config.selfhosted.services.vaultwarden.port;
-      SIGNUPS_ALLOWED = true;
+      SIGNUPS_ALLOWED = false;
     };
   };
 }
