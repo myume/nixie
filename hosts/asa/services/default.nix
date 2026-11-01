@@ -47,5 +47,9 @@ in {
       type = types.attrsOf (types.submodule serviceDecl);
       default = {};
     };
+    mediaDir = lib.mkOption {
+      type = types.str;
+      default = "/srv/media";
+    };
   };
 }

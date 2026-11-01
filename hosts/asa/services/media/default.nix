@@ -3,7 +3,8 @@
   lib,
   ...
 }: let
-  mediaDir = "/srv/media";
+  inherit (config.selfhosted) mediaDir;
+
   mediaServices = ["qbittorrent" "jellyfin" "kavita"];
   mediaUsers =
     ["yum"]
