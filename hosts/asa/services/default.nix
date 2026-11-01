@@ -32,10 +32,8 @@ in {
     ./caddy.nix
     ./filebrowser.nix
     ./forgejo.nix
-    ./jellyfin.nix
-    ./kavita.nix
-    ./qbittorrent.nix
     ./vaultwarden.nix
+    ./media
     ./monitoring
 
     # deployment tools that are on by default

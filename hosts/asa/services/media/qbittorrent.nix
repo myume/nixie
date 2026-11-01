@@ -16,6 +16,8 @@
     };
   };
 
+  systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+
   services.qui = {
     enable = true;
     secretFile = "/var/lib/secrets/qui-secret";
