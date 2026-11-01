@@ -34,6 +34,7 @@ in {
     ./forgejo.nix
     ./jellyfin.nix
     ./kavita.nix
+    ./qbittorrent.nix
     ./monitoring
 
     # deployment tools that are on by default
