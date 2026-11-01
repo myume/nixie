@@ -35,6 +35,7 @@ in {
     ./jellyfin.nix
     ./kavita.nix
     ./qbittorrent.nix
+    ./vaultwarden.nix
     ./monitoring
 
     # deployment tools that are on by default
