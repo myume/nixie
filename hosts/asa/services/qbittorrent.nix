@@ -1,7 +1,7 @@
 {config, ...}: {
   selfhosted.services.qbittorrent = {
     name = "qb";
-    port = 9000;
+    port = 7476;
   };
 
   services.qbittorrent = {
@@ -10,6 +10,7 @@
 
   services.qui = {
     enable = true;
+    secretFile = "/var/lib/secrets/qui-secret";
     settings = {
       port = config.selfhosted.services.qbittorrent.port;
 
