@@ -56,13 +56,13 @@
                 {
                   alert = "UnitFailed";
                   expr = ''node_systemd_unit_state{state="failed"} == 1'';
-                  "for" = "1m";
+                  "for" = "5m";
                   annotations.summary = "{{ $labels.name }} is in failed state";
                 }
                 {
                   alert = "DiskFillingSoon";
                   expr = ''predict_linear(node_filesystem_avail_bytes{fstype!~"tmpfs|ramfs"}[6h], 4*24*3600) < 0'';
-                  "for" = "30m";
+                  "for" = "1d";
                   annotations.summary = "{{ $labels.mountpoint }} predicted full within 4 days";
                 }
                 {
@@ -80,7 +80,7 @@
                 {
                   alert = "NixDeploymentFailed";
                   expr = ''comin_last_eval_failed == 1 or comin_last_build_failed == 1 or comin_last_deployment_failed == 1'';
-                  "for" = "0m";
+                  "for" = "30m";
                   labels = {
                     severity = "critical";
                   };
