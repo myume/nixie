@@ -7,6 +7,9 @@
   services.qbittorrent = {
     enable = true;
     webuiPort = 8008;
+    serverConfig = {
+      Preferences.WebUI.Address = "127.0.0.1";
+    };
   };
 
   services.qui = {
