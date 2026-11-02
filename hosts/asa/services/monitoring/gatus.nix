@@ -4,7 +4,7 @@
   ...
 }: {
   selfhosted.services.gatus = {
-    name = "uptime";
+    name = "status";
     port = 8888;
   };
 
