@@ -5,9 +5,9 @@
   ...
 }: let
   categories = {
-    movies = "${config.selfhosted.mediaDir}/movies";
-    shows = "${config.selfhosted.mediaDir}/shows";
-    "light-novels" = "${config.selfhosted.mediaDir}/books/light_novels";
+    movies = "${config.selfhosted.mediaDir}/library/movies";
+    shows = "${config.selfhosted.mediaDir}/library/shows";
+    "light-novels" = "${config.selfhosted.mediaDir}/library/books/light_novels";
   };
 
   categoriesJson =
