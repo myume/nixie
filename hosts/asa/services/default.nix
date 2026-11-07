@@ -33,6 +33,7 @@ in {
     ./filebrowser.nix
     ./forgejo.nix
     ./vaultwarden.nix
+    ./vikunja.nix
     ./media
     ./monitoring
 
