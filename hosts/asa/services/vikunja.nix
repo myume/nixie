@@ -10,5 +10,6 @@
     port = config.selfhosted.services.vikunja.port;
     frontendScheme = "https";
     frontendHostname = config.selfhosted.services.vikunja.host;
+    environmentFiles = ["/var/lib/secrets/vikunja-secret"];
   };
 }
