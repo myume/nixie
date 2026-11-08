@@ -34,7 +34,6 @@ in {
             reverse_proxy ${upstream attrs} {
               header_up X-Real-IP {remote_host}
               header_up X-Http-Version {http.request.proto}
-              header_up X-TLS-SNI-Name {tls_server_name}
             }
           '';
         })
