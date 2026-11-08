@@ -38,6 +38,7 @@
   };
 in {
   imports = [
+    ./comin.nix
     ./brainsoup.nix
     ./filebrowser.nix
     ./forgejo.nix
