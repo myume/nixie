@@ -24,22 +24,28 @@
         type = types.str;
         default = "${config.name}.${top.selfhosted.domain}";
       };
+      anubis = {
+        enable = lib.mkEnableOption "Anubis in front of this service";
+
+        settings = lib.mkOption {
+          type = with lib.types; attrsOf (oneOf [str int bool]);
+          default = {};
+          example = {DIFFICULTY = 6;};
+          description = "Extra Anubis environment settings for this instance, merged over the defaults.";
+        };
+      };
     };
   };
 in {
   imports = [
     ./brainsoup.nix
-    ./caddy.nix
     ./filebrowser.nix
     ./forgejo.nix
     ./vaultwarden.nix
     ./vikunja.nix
     ./media
     ./monitoring
-
-    # deployment tools that are on by default
-    ./comin.nix
-    ./cloudflare.nix
+    ./proxy
   ];
 
   options.selfhosted = {

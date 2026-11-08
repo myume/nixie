@@ -5,7 +5,9 @@
 }: {
   selfhosted.services = {
     forgejo = {
+      name = "git";
       port = 3000;
+      anubis.enable = true;
     };
   };
 
@@ -16,8 +18,8 @@
       lfs.enable = true;
       settings = {
         server = {
-          DOMAIN = "git.meyume.com";
-          ROOT_URL = "https://git.meyume.com/";
+          DOMAIN = config.selfhosted.services.forgejo.host;
+          ROOT_URL = "https://${config.selfhosted.services.forgejo.host}";
           HTTP_ADDR = "127.0.0.1";
           HTTP_PORT = config.selfhosted.services.forgejo.port;
 
