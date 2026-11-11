@@ -12,18 +12,8 @@
     ]) (lib.lists.range 1 9));
 
     launcher = "quickshell ipc call launcher toggle";
-  in
-    workspaces
-    ++ [
-      {
-        key = "Mod+Return";
-        action.spawn-sh = "kitty -1";
-      }
-      {
-        key = "Mod+Space";
-        action.spawn-sh = launcher;
-      }
 
+    focusBinds = [
       {
         key = "Mod+H";
         action.focus-column-or-monitor-left = true;
@@ -41,6 +31,35 @@
         action.focus-window-or-workspace-down = true;
       }
 
+      {
+        key = "Mod+semicolon";
+        action.focus-monitor-left = true;
+      }
+      {
+        key = "Mod+apostrophe";
+        action.focus-monitor-right = true;
+      }
+      {
+        key = "Mod+BracketLeft";
+        action.focus-monitor-up = true;
+      }
+      {
+        key = "Mod+Slash";
+        action.focus-monitor-down = true;
+      }
+    ];
+  in
+    workspaces
+    ++ focusBinds
+    ++ [
+      {
+        key = "Mod+Return";
+        action.spawn-sh = "kitty -1";
+      }
+      {
+        key = "Mod+Space";
+        action.spawn-sh = launcher;
+      }
       {
         key = "Alt+Shift+H";
         action.move-column-left-or-to-monitor-left = true;
