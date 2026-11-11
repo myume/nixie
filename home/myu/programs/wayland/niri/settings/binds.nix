@@ -48,35 +48,8 @@
         action.focus-monitor-down = true;
       }
     ];
-  in
-    workspaces
-    ++ focusBinds
-    ++ [
-      {
-        key = "Mod+Return";
-        action.spawn-sh = "kitty -1";
-      }
-      {
-        key = "Mod+Space";
-        action.spawn-sh = launcher;
-      }
-      {
-        key = "Alt+Shift+H";
-        action.move-column-left-or-to-monitor-left = true;
-      }
-      {
-        key = "Alt+Shift+L";
-        action.move-column-right-or-to-monitor-right = true;
-      }
-      {
-        key = "Alt+Shift+K";
-        action.move-window-up-or-to-workspace-up = true;
-      }
-      {
-        key = "Alt+Shift+J";
-        action.move-window-down-or-to-workspace-down = true;
-      }
 
+    windowControl = [
       {
         key = "Ctrl+Shift+L";
         action.set-column-width = "+10%";
@@ -101,22 +74,9 @@
         key = "Mod+Tab";
         action.switch-preset-column-width = true;
       }
-
       {
-        key = "Mod+Ctrl+H";
-        action.move-workspace-to-monitor-left = true;
-      }
-      {
-        key = "Mod+Ctrl+L";
-        action.move-workspace-to-monitor-right = true;
-      }
-      {
-        key = "Mod+Ctrl+K";
-        action.move-workspace-to-monitor-up = true;
-      }
-      {
-        key = "Mod+Ctrl+J";
-        action.move-workspace-to-monitor-down = true;
+        key = "Mod+Equal";
+        action.expand-column-to-available-width = true;
       }
 
       {
@@ -162,35 +122,9 @@
         key = "Mod+Shift+S";
         action.expel-window-from-column = true;
       }
+    ];
 
-      {
-        key = "Mod+Shift+L";
-        action.spawn-sh = "loginctl lock-session";
-      }
-      {
-        key = "Mod+Ctrl+S";
-        action.spawn-sh = "systemctl suspend-then-hibernate";
-        allow-when-locked = true;
-      }
-
-      {
-        key = "Mod+Equal";
-        action.expand-column-to-available-width = true;
-      }
-
-      {
-        key = "Mod+P";
-        action.screenshot = {};
-      }
-      {
-        key = "Mod+Shift+P";
-        action.screenshot-screen = {};
-      }
-      {
-        key = "Mod+Ctrl+P";
-        action.screenshot-window = {};
-      }
-
+    audioBinds = [
       {
         key = "XF86AudioRaiseVolume";
         action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
@@ -228,4 +162,87 @@
         action.spawn-sh = "brightnessctl set 2%-";
       }
     ];
+
+    moveBinds = [
+      {
+        key = "Alt+Shift+H";
+        action.move-column-left-or-to-monitor-left = true;
+      }
+      {
+        key = "Alt+Shift+L";
+        action.move-column-right-or-to-monitor-right = true;
+      }
+      {
+        key = "Alt+Shift+K";
+        action.move-window-up-or-to-workspace-up = true;
+      }
+      {
+        key = "Alt+Shift+J";
+        action.move-window-down-or-to-workspace-down = true;
+      }
+
+      {
+        key = "Mod+Ctrl+H";
+        action.move-workspace-to-monitor-left = true;
+      }
+      {
+        key = "Mod+Ctrl+L";
+        action.move-workspace-to-monitor-right = true;
+      }
+      {
+        key = "Mod+Ctrl+K";
+        action.move-workspace-to-monitor-up = true;
+      }
+      {
+        key = "Mod+Ctrl+J";
+        action.move-workspace-to-monitor-down = true;
+      }
+    ];
+
+    screenshotBinds = [
+      {
+        key = "Mod+P";
+        action.screenshot = {};
+      }
+      {
+        key = "Mod+Shift+P";
+        action.screenshot-screen = {};
+      }
+      {
+        key = "Mod+Ctrl+P";
+        action.screenshot-window = {};
+      }
+    ];
+
+    powerBinds = [
+      {
+        key = "Mod+Shift+L";
+        action.spawn-sh = "loginctl lock-session";
+      }
+      {
+        key = "Mod+Ctrl+S";
+        action.spawn-sh = "systemctl suspend-then-hibernate";
+        allow-when-locked = true;
+      }
+    ];
+
+    spawnBinds = [
+      {
+        key = "Mod+Return";
+        action.spawn-sh = "kitty -1";
+      }
+      {
+        key = "Mod+Space";
+        action.spawn-sh = launcher;
+      }
+    ];
+  in
+    workspaces
+    ++ focusBinds
+    ++ windowControl
+    ++ audioBinds
+    ++ screenshotBinds
+    ++ powerBinds
+    ++ moveBinds
+    ++ spawnBinds;
 }
