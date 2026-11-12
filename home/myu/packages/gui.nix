@@ -11,6 +11,7 @@
     proton-vpn
     readest
     godot
+    aseprite
     krita
     rnote
     chromium
